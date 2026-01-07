@@ -63,10 +63,17 @@ h1 span { color: var(--orange); }
 /* --- MENU LAYOUT (Grid for Cards) --- */
 .menu-grid {
     display: grid;
-    /* FORCED 2 COLUMNS ON ALL SCREENS */
-    grid-template-columns: 1fr 1fr; 
+    /* DEFAULT: Single column for mobile screens */
+    grid-template-columns: 1fr; 
     gap: 20px;
     margin-top: 20px;
+}
+
+/* 💻 Media Query for two columns (e.g., screens wider than 400px) */
+@media (min-width: 400px) {
+    .menu-grid {
+        grid-template-columns: 1fr 1fr; 
+    }
 }
 
 /* Style for the individual item cards */
@@ -81,16 +88,28 @@ h1 span { color: var(--orange); }
     flex-direction: column;
 }
 
-/* UPDATED RULE: Center the last odd item. We will set its width to 100% of one column and center it using margin. */
+/* UPDATED RULE: Center the last odd item. 
+   1. On small screens (1 column), we don't need special centering, so reset properties.
+   2. On screens >= 400px (2 columns), apply the centering rule.
+*/
 .menu-grid .item-card:nth-last-child(1):nth-child(odd) {
-    /* Span the full width of the grid */
-    grid-column: 1 / -1; 
-    
-    /* Resetting width/margin to center it in the grid row */
-    width: calc(50% - 10px); /* Calculate the width of one column (1fr minus half the gap) */
-    margin-left: auto; /* Center the element */
-    margin-right: auto;
+    /* Reset for mobile/default 1-column view */
+    grid-column: auto;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
+
+@media (min-width: 400px) {
+    .menu-grid .item-card:nth-last-child(1):nth-child(odd) {
+        /* Apply centering for 2-column view */
+        grid-column: 1 / -1; 
+        width: calc(50% - 10px); 
+        margin-left: auto; 
+        margin-right: auto;
+    }
+}
+
 
 .item-card:hover {
     transform: translateY(-5px);
@@ -211,8 +230,15 @@ h1 span { color: var(--orange); }
                 <span id="item-5" class="status unavailable">Loading...</span>
             </div>
         </div>
-
-    </div>
+        
+        <div class="item-card">
+            <div class="item-image" style="background-image: url('egg.jpg');"></div>
+            <div class="item-content-wrapper">
+                <div class="item-name">আন্ডা ভাজি</div>
+                <span id="item-6" class="status unavailable">Loading...</span>
+            </div>
+        </div>
+        </div>
 
     <div class="footer">
         © 2026 Aura Kitchen | <a href="index.html" style="color: var(--orange); text-decoration: none;">Back to Home</a>
@@ -229,8 +255,9 @@ function setMenuAvailability() {
         'item-1': false,     // (কুরোগোস্ত)
         'item-2': true,      // (ডাইল)
         'item-3': true,      // (সাদা ভাত)
-        'item-4': null,      // (কি মাছ না জানি)
+        'item-4': null,      // (কি মাছ ন জানি)
         'item-5': false,     // (আলুভর্তা)
+        'item-6': null,       // (আন্ডা ভাজি)
     };
     
     // Save the new state to Local Storage
@@ -246,7 +273,8 @@ function loadMenuAvailability() {
     const menuState = savedStateJSON ? JSON.parse(savedStateJSON) : {};
 
     // 2. Iterate through all items defined in the HTML.
-    const itemIds = ['item-1', 'item-2', 'item-3', 'item-4', 'item-5'];
+    // UPDATED itemIds array
+    const itemIds = ['item-1', 'item-2', 'item-3', 'item-4', 'item-5', 'item-6'];
 
     itemIds.forEach(itemId => {
         const statusElement = document.getElementById(itemId);
