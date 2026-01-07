@@ -9,11 +9,8 @@
 :root {
     --orange: #ff7a18;
     --bg-light: #f9fafb;
-    --bg-dark: #0f172a;
     --card-light: #ffffff;
-    --card-dark: #111827;
     --text-light: #111827;
-    --text-dark: #e5e7eb;
     --muted-light: #6b7280;
 }
 
@@ -34,18 +31,6 @@ body {
     align-items: center;
     padding: 20px;
     text-align: center;
-}
-
-/* 🌙 Dark mode auto */
-@media (prefers-color-scheme: dark) {
-    body {
-        background: var(--bg-dark);
-        color: var(--text-dark);
-    }
-    .welcome-card {
-        background: var(--card-dark);
-        box-shadow: 0 10px 20px rgba(255, 122, 24, 0.1);
-    }
 }
 
 .welcome-card {
@@ -103,8 +88,6 @@ p {
     transform: translateY(-2px);
 }
 
-/* The .admin-link section is removed from here */
-
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -128,3 +111,4 @@ p {
 
 </body>
 </html>
+
