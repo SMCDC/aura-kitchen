@@ -13,13 +13,9 @@
     --green-available: #10b981; 
     --grey-unavailable: #9ca3af; 
     --bg-light: #f9fafb;
-    --bg-dark: #0f172a;
     --card-light: #ffffff;
-    --card-dark: #111827;
     --text-light: #111827;
-    --text-dark: #e5e7eb;
     --muted-light: #6b7280;
-    --muted-dark: #9ca3af;
 }
 
 /* Base Styles */
@@ -38,26 +34,6 @@ body {
     justify-content: center;
     align-items: center;
     padding: 20px;
-}
-
-/* 🌙 Dark mode auto */
-@media (prefers-color-scheme: dark) {
-    body {
-        background: var(--bg-dark);
-        color: var(--text-dark);
-    }
-    .card, .item-card { 
-        background: var(--card-dark);
-    }
-    .aura-level p, .footer {
-        color: var(--muted-dark);
-    }
-    .item-card {
-        box-shadow: 0 5px 15px rgba(255, 122, 24, 0.1);
-    }
-    .item-image {
-        background-color: #374151; 
-    }
 }
 
 .container {
@@ -147,12 +123,6 @@ h1 span { color: var(--orange); }
     margin-bottom: 10px; 
     color: var(--text-light);
 }
-@media (prefers-color-scheme: dark) {
-    .item-name {
-        color: var(--text-dark);
-    }
-}
-
 
 /* AVAILABILITY STATUS STYLES */
 .status {
@@ -179,12 +149,6 @@ h1 span { color: var(--orange); }
 .unavailable {
     color: var(--card-light); 
     background-color: var(--grey-unavailable);
-}
-@media (prefers-color-scheme: dark) {
-    .unavailable {
-        color: var(--text-dark); 
-        background-color: var(--grey-unavailable);
-    }
 }
 
 /* Footer (General) */
@@ -235,7 +199,7 @@ h1 span { color: var(--orange); }
         <div class="item-card">
             <div class="item-image" style="background-image: url('fish.jpg');"></div>
             <div class="item-content-wrapper">
-                <div class="item-name">কি মাছ না জানি</div>
+                <div class="item-name">কি মাছ ন জানি</div>
                 <span id="item-4" class="status unavailable">Loading...</span>
             </div>
         </div>
