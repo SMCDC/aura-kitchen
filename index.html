@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aura Kitchen - Welcome</title>
+
+<style>
+:root {
+    --orange: #ff7a18;
+    --bg-light: #f9fafb;
+    --bg-dark: #0f172a;
+    --card-light: #ffffff;
+    --card-dark: #111827;
+    --text-light: #111827;
+    --text-dark: #e5e7eb;
+    --muted-light: #6b7280;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', system-ui, sans-serif;
+}
+
+body {
+    background: var(--bg-light);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
+
+/* 🌙 Dark mode auto */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: var(--bg-dark);
+        color: var(--text-dark);
+    }
+    .welcome-card {
+        background: var(--card-dark);
+        box-shadow: 0 10px 20px rgba(255, 122, 24, 0.1);
+    }
+}
+
+.welcome-card {
+    max-width: 400px;
+    width: 100%;
+    background: var(--card-light);
+    border-radius: 20px;
+    padding: 40px 30px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    animation: fadeIn 0.8s ease;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: clamp(28px, 6vw, 36px);
+    letter-spacing: 2px;
+    margin-bottom: 5px;
+}
+
+h1 span {
+    color: var(--orange);
+}
+
+p {
+    color: var(--muted-light);
+    /* Reduced bottom margin as the link below is removed */
+    margin-bottom: 40px; 
+    font-size: 16px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.button {
+    display: block;
+    padding: 15px;
+    background: var(--orange);
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #e56b15;
+    transform: translateY(-2px);
+}
+
+/* The .admin-link section is removed from here */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="welcome-card">
+    <img src="logo.png" alt="Aura Kitchen Logo" class="logo">
+
+    <h1>Welcome to <span>AURA</span></h1>
+    <p>“Crafted with care, served with aura.”</p> 
+
+    <div class="button-group">
+        <a href="menu.html" class="button">Today's Menu</a>
+    </div>
+
+    </div>
+
+</body>
+</html>
