@@ -226,11 +226,11 @@ const LOCAL_STORAGE_KEY = 'auraMenuState';
 function setMenuAvailability() {
     // Availability Key: true (Available), false (Unavailable), undefined/null (Pending)
     const newMenuState = {
-        'item-1': true,     // Available (কুরোগোস্ত)
-        'item-2': undefined,// Pending (ডাইল)
-        'item-3': true,     // Available (সাদা ভাত)
-        'item-4': false,    // Unavailable (কি মাছ না জানি)
-        'item-5': true      // Available (আলুভর্তা)
+        'item-1': false,     // Unavailable (কুরোগোস্ত)
+        'item-2': true,      // Available (ডাইল)
+        'item-3': true,      // Available (সাদা ভাত)
+        'item-4': true,      // Available (কি মাছ না জানি)
+        'item-5': false,     // Unavailable (আলুভর্তা)
     };
     
     // Save the new state to Local Storage
